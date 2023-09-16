@@ -1,0 +1,26 @@
+POST http://localhost:3000/auth/login
+Content-Type: application/json
+
+{
+    "email": "smol@gmail.com",
+    "password": "gao"
+}
+
+###
+GET http://localhost:3000/user
+Cookie: accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InVzZXIxIiwiZW1haWwiOiJzbW9sQGdtYWlsLmNvbSIsImlhdCI6MTY5NDMzNTUxMCwiZXhwIjoxNjk0MzM2MTEwfQ.YPNN-bPATPBIeWamybjbl_52bhStV_crvS5aIk9A6D8
+
+###
+PUT http://localhost:3000/user
+Cookie: accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InVzZXIxIiwiZW1haWwiOiJzbW9sQGdtYWlsLmNvbSIsImlhdCI6MTY5NDMzNTUxMCwiZXhwIjoxNjk0MzM2MTEwfQ.YPNN-bPATPBIeWamybjbl_52bhStV_crvS5aIk9A6D8
+Content-Type: application/json
+
+{
+    "newUser": {
+        "email": "chang@gmail.com"
+    }
+}
+
+###
+DELETE  http://localhost:3000/user
+Cookie: accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InVzZXIxIiwiZW1haWwiOiJzbW9sQGdtYWlsLmNvbSIsImlhdCI6MTY5NDMzNTUxMCwiZXhwIjoxNjk0MzM2MTEwfQ.YPNN-bPATPBIeWamybjbl_52bhStV_crvS5aIk9A6D8

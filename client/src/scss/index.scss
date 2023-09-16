@@ -1,0 +1,5 @@
+@use 'mixin';
+
+.customScrollbar {
+    @include mixin.scrollBar(white, black);
+}
