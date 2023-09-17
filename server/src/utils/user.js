@@ -64,6 +64,8 @@ function setSellerRole(id, seller) {
 	});
 }
 
+
+
 module.exports = {
 	getUserWithEmail,
 	getUserWithEmailAndPassword,

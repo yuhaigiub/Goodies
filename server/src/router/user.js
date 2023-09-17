@@ -2,6 +2,7 @@ const express = require("express");
 const {authenticateMiddleware} = require("../utils/middleware");
 const {getUser, updateUser, deleteUser, setSellerRole} = require("../utils/user");
 const {createAccessToken, createRefreshToken, removeRefreshToken} = require("../utils/auth");
+const {addProductToCart, updateCartItem, deleteCartItem} = require("../utils/cart");
 const router = express.Router();
 
 router.use(authenticateMiddleware);
@@ -61,6 +62,34 @@ router.delete("/", (req, res) => {
 	const id = req.user.id;
 	deleteUser(id);
 	return res.sendStatus(200);
+});
+
+router.post("/cart", (req, res) => {
+	const userId = req.user.id;
+	const cartItem = req.body.item;
+	const newCartItem = addProductToCart(userId, cartItem);
+	if (newCartItem === null) return res.sendStatus(404);
+	return res.status(200).json({
+		item: newCartItem,
+	});
+});
+
+router.put("/cart", (req, res) => {
+	const userId = req.user.id;
+	const cartItem = req.body.item;
+	const newCartItem = updateCartItem(userId, cartItem);
+	if (newCartItem === null) return res.sendStatus(404);
+	return res.status(200).json({
+		item: newCartItem,
+	});
+});
+
+router.delete("/cart", (req, res) => {
+	const userId = req.user.id;
+	const itemId = req.body.id;
+	const isSuccess = deleteCartItem(userId, itemId);
+	if (!isSuccess) return res.sendStatus(404);
+	return res.sendStatus(204);
 });
 
 module.exports = router;

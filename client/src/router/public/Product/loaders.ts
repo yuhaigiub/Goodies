@@ -3,7 +3,7 @@ import {QueryClient} from "@tanstack/react-query";
 import { productQuery } from "../../../api/react-queries/product";
 
 export const productLoader: (queryClient: QueryClient) => LoaderFunction =
-	(queryClient: QueryClient) =>
+	(queryClient) =>
 	async ({params}) => {
 		const id = params.id as string;
 		const query = productQuery(id);

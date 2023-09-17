@@ -4,7 +4,7 @@ import {QueryClient} from "@tanstack/react-query";
 import {updateProduct} from "../../../api/products";
 
 export const detailProductLoader: (queryClient: QueryClient) => LoaderFunction =
-	(queryClient: QueryClient) =>
+	(queryClient) =>
 	async ({params}) => {
 		const id = params.id as string;
 		const query = productQuery(id);
@@ -12,7 +12,7 @@ export const detailProductLoader: (queryClient: QueryClient) => LoaderFunction =
 	};
 
 export const detailProductAction: (queryClient: QueryClient) => ActionFunction =
-	(queryClient: QueryClient) =>
+	(queryClient) =>
 	async ({params, request}) => {
 		console.log("detailProductAction()");
 		const id = params.id as string;

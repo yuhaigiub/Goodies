@@ -1,4 +1,4 @@
-import {Box, FormControl, FormErrorMessage, FormLabel, Input} from "@chakra-ui/react";
+import {FormControl, FormErrorMessage, FormLabel, Input} from "@chakra-ui/react";
 import {useState} from "react";
 
 const ControlledInputField: React.FC<Props> = ({name, label, value, isUpdate, type = "text", initialValue = ""}) => {
@@ -21,11 +21,7 @@ const ControlledInputField: React.FC<Props> = ({name, label, value, isUpdate, ty
 				borderColor="gray.500"
 				focusBorderColor="black"
 			/>
-			{name.length === 999 ? (
-				<FormErrorMessage h="22px" textAlign="right"></FormErrorMessage>
-			) : (
-				<Box h="22px"></Box>
-			)}
+			<FormErrorMessage h="22px" textAlign="right"></FormErrorMessage>
 		</FormControl>
 	);
 };

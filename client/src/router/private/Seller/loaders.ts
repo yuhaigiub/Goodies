@@ -14,7 +14,7 @@ export interface SellerLoaderReturnType {
 }
 
 export const sellerLoader: (queryClient: QueryClient) => LoaderFunction =
-	(queryClient: QueryClient) =>
+	(queryClient) =>
 	async ({request}) => {
 		const url = new URL(request.url);
 		const intent = url.searchParams.get("intent") || "";

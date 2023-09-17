@@ -1,4 +1,4 @@
-import {Input, FormLabel, FormControl, FormErrorMessage, Box} from "@chakra-ui/react";
+import {Input, FormLabel, FormControl, FormErrorMessage} from "@chakra-ui/react";
 
 const InputField: React.FC<Props> = ({
 	name,
@@ -20,12 +20,10 @@ const InputField: React.FC<Props> = ({
 				focusBorderColor="black"
 				bg="white"
 			/>
-			{isInvalid ? (
+			{isInvalid && (
 				<FormErrorMessage justifyContent="flex-end" h="20px" mt="4px">
 					{errorMessage}
 				</FormErrorMessage>
-			) : (
-				<Box h="20px" mt="4px"></Box>
 			)}
 		</FormControl>
 	);
@@ -34,11 +32,11 @@ const InputField: React.FC<Props> = ({
 export default InputField;
 
 interface Props {
-    name: string;
+	name: string;
 	label: string;
 	type?: string;
 	placeholder?: string;
-    isRequired?: boolean;
+	isRequired?: boolean;
 	isInvalid?: boolean;
 	errorMessage?: string;
 }

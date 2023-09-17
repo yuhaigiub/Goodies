@@ -14,7 +14,7 @@ import {sellerAction} from "./router/private/Seller/loaders";
 import AddProduct, {addProductAction} from "./router/private/AddProduct";
 import DetailProduct, {detailProductAction, detailProductLoader} from "./router/private/DetailProduct";
 import PrivateLayout, {privateLayoutLoader} from "./layout/PrivateLayout";
-import Cart from "./router/private/Cart";
+import Cart, {cartLoader} from "./router/private/Cart";
 
 const queryClient = new QueryClient({
 	defaultOptions: {
@@ -48,7 +48,7 @@ const router = createBrowserRouter(
 						action={sellerAction}
 						loader={sellerLoader(queryClient)}
 					/>
-					<Route path="cart" element={<Cart />} />
+					<Route path="cart" element={<Cart />} loader={cartLoader(queryClient)} />
 				</Route>
 			</Route>
 			<Route path="login" element={<Login />} action={loginAction} loader={loginLoader} />
